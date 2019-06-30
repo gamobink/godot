@@ -3,9 +3,10 @@
 /*************************************************************************/
 /*                       This file is part of:                           */
 /*                           GODOT ENGINE                                */
-/*                    http://www.godotengine.org                         */
+/*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2007-2019 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2019 Godot Engine contributors (cf. AUTHORS.md)    */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -26,12 +27,11 @@
 /* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
 /*************************************************************************/
+
 #ifndef SEMAPHORE_POSIX_H
 #define SEMAPHORE_POSIX_H
 
-
-
-#include "os/semaphore.h"
+#include "core/os/semaphore.h"
 
 #if defined(UNIX_ENABLED) || defined(PTHREAD_ENABLED)
 
@@ -46,16 +46,14 @@ class SemaphorePosix : public Semaphore {
 	static Semaphore *create_semaphore_posix();
 
 public:
-
 	virtual Error wait();
-	virtual Error post(); 
+	virtual Error post();
 	virtual int get() const;
 
 	static void make_default();
 	SemaphorePosix();
-	
-	~SemaphorePosix();
 
+	~SemaphorePosix();
 };
 
 #endif
